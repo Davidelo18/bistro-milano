@@ -1,0 +1,29 @@
+.header {
+    @include make-flex;
+    width: 100%;
+    padding: 20px;
+    background-color: $brandColor;
+    &__logo {
+        max-width: 10%;
+        margin-left: 5%;
+        &-image {
+            max-height: 100px;
+        }
+    }
+    &__menu {
+        flex: 1;
+        @include make-flex;
+        font-family: $Parisienne;
+        font-size: 2rem;
+        &__link {
+            padding: $optionPadding;
+            color: #000;
+            border-radius: $borderRadius;
+            transition: background-color .3s ease-in-out;
+            margin-left: 10px;
+            &:hover {
+                background-color: $darkBg;
+            }
+        }
+    }
+}

@@ -1,1 +1,10 @@
 header.header
+    .header__logo
+        a(href='#')
+            img(class="header__logo-image", src=path_to_images + 'logo.png', alt="Logo Bistro Milano")
+    +menu('header__menu', [
+        ['Strona główna', '#'],
+        ['O nas', '#'],
+        ['Menu', '#'],
+        ['Galeria', '#'],
+        ['Kontakt', '#']])

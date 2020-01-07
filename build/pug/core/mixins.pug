@@ -1,0 +1,5 @@
+mixin menu(name, options)
+    ul(class=name)
+        each option in options
+            li(class=name + '__element')
+                a(class=name + '__link', href=option[1])= option[0]
