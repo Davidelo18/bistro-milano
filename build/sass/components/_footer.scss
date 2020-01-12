@@ -1,0 +1,33 @@
+.footer {
+    background-color: $darkBg;
+    padding: 20px;
+    text-align: center;
+    &__row {
+        @include make-flex;
+        align-items: flex-start;
+    }
+    &__section {
+        flex: 1;
+        a {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    &__title {
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+    &__image {
+        max-width: 300px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .fb-logo {
+        max-width: 56px;
+    }
+    &__copyright {
+        font-size: .8rem;
+    }
+}

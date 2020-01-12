@@ -1,3 +1,42 @@
 :root {
     font-family: $OpenSans;
 }
+
+.container {
+    @include make-container;
+}
+
+.content {
+    padding: 10px;
+    &__title {
+        position: relative;
+        text-align: center;
+        font-family: $Parisienne;
+        font-size: 3rem;
+        padding: 20px 0;
+        margin-bottom: 30px;
+        color: #4c4c4c;
+        @include brand-selection;
+        &:after {
+            content: '';
+            position: absolute;
+            left: 35%;
+            bottom: 0;
+            height: 2px;
+            width: 30%;
+            background: linear-gradient(
+                to right,
+                #008c45 0%,
+                #008c45 33.3%,
+                #f4f5f0 33.3%,
+                #f4f5f0 66.7%,
+                #cd212a 66.7%,
+                #cd212a);
+        }
+    }
+    p {
+        @include brand-selection;
+        text-align: justify;
+        color: #4c4c4c;
+    }
+}

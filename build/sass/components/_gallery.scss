@@ -1,0 +1,27 @@
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    grid-auto-rows: 1fr;
+    @include for-tablet-landscape {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include for-phones {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    &__image-container {
+        overflow: hidden;
+        height: 300px;
+        img {
+            width: 100%;
+            height: 100%;
+            transition: transform .5s ease-in-out;
+        }
+        &:hover {
+            cursor: pointer;
+            img {
+                transform: scale(1.2);
+            }
+        }
+    }
+}

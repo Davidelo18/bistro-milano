@@ -1,5 +1,12 @@
 include core/template
 body
     include includes/header
-    main
+    include includes/banner
+    main.container
+        +section('O nas')
+            p 
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu nulla porta lacus eleifend placerat. Donec tempus leo at sapien laoreet dictum. Nullam blandit, arcu eu tincidunt dictum, sapien nibh gravida lacus, id bibendum lectus ligula a libero. Praesent gravida sem vel risus bibendum venenatis. Ut quis ex sed lacus tincidunt semper nec sit amet risus. Nulla ultrices vestibulum velit, sed laoreet eros ullamcorper rutrum. Cras elementum orci et nunc luctus aliquam. Integer pretium felis eu mauris rutrum egestas. Praesent in commodo libero. In porttitor quis metus in viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum maximus volutpat augue a ullamcorper. Suspendisse lobortis dui non ultricies euismod. Fusce quis ipsum malesuada, rhoncus est at, consectetur massa. Pellentesque luctus quis urna sed sollicitudin.
+        +section('Menu')
+        +section('Galeria')
+            include includes/gallery
     include includes/footer
