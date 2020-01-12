@@ -3,6 +3,7 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const pug = require('gulp-pug');
+const babel = require('gulp-babel');
 const watch = require('gulp-watch');
 
 gulp.task('sass', () => {
@@ -23,7 +24,17 @@ gulp.task('pug', () => {
             doctype: 'html',
             pretty: true
         }))
-    .pipe(gulp.dest('./dist/html/'))
+    .pipe(gulp.dest('./dist/'))
+});
+
+gulp.task('scripts', () => {
+    return gulp.src(
+        [
+            'node_modules/babel-polyfill/dist/polyfill.js',
+            './build/js/app.js'
+        ])
+        .pipe(babel({presets: ['@babel/preset-env']}))
+        .pipe(gulp.dest('./dist/js/'))
 });
 
 gulp.task('render-images', () => {
@@ -39,8 +50,9 @@ gulp.task('render-docs', () => {
 gulp.task('watch', () => {
     gulp.watch('./build/sass/**/*.scss', gulp.series('sass'))
     gulp.watch('./build/pug/**/*.pug', gulp.series('pug'))
+    gulp.watch('./build/js/app.js', gulp.series('scripts'))
     gulp.watch('./build/assets/images/*', gulp.series('render-images'))
     gulp.watch('./build/assets/documents/*', gulp.series('render-docs'))
 });
 
-gulp.task('reload', gulp.series('sass', 'pug', 'render-images', 'render-docs'));
+gulp.task('reload', gulp.series('sass', 'pug', 'scripts','render-images', 'render-docs'));

@@ -1,12 +1,22 @@
-include core/template
-body
-    include includes/header
-    include includes/banner
-    main.container
-        +section('O nas')
-            p 
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu nulla porta lacus eleifend placerat. Donec tempus leo at sapien laoreet dictum. Nullam blandit, arcu eu tincidunt dictum, sapien nibh gravida lacus, id bibendum lectus ligula a libero. Praesent gravida sem vel risus bibendum venenatis. Ut quis ex sed lacus tincidunt semper nec sit amet risus. Nulla ultrices vestibulum velit, sed laoreet eros ullamcorper rutrum. Cras elementum orci et nunc luctus aliquam. Integer pretium felis eu mauris rutrum egestas. Praesent in commodo libero. In porttitor quis metus in viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum maximus volutpat augue a ullamcorper. Suspendisse lobortis dui non ultricies euismod. Fusce quis ipsum malesuada, rhoncus est at, consectetur massa. Pellentesque luctus quis urna sed sollicitudin.
-        +section('Menu')
-        +section('Galeria')
-            include includes/gallery
-    include includes/footer
+include core/mixins
+include core/variables
+doctype html
+html
+    head
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(charset="UTF-8")
+        link(rel='apple-touch-icon' sizes='180x180' href=path_to_images + 'apple-touch-icon.png')
+        link(rel='icon' type='image/png' sizes='32x32' href=path_to_images + 'favicon-32x32.png')
+        link(rel='icon' type='image/png' sizes='16x16' href=path_to_images + 'favicon-16x16.png')
+        link(rel='manifest' href=path_to_documents + 'site.webmanifest')
+        link(rel='shortcut icon' href=path_to_images + 'favicon.ico')
+        meta(name='msapplication-TileColor' content='#da532c')
+        meta(name='msapplication-config' content=path_to_documents + 'browserconfig.xml')
+        meta(name='theme-color' content='#ffffff')
+        link(rel="stylesheet", href="css/main.css")
+        link(href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap", rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css?family=Parisienne&display=swap", rel="stylesheet")
+        title Bistro Milano
+        script(src="js/app.js")
+    body
+        include core/template
