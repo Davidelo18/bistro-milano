@@ -5,6 +5,8 @@ const autoprefixer = require('gulp-autoprefixer');
 const pug = require('gulp-pug');
 const babel = require('gulp-babel');
 const watch = require('gulp-watch');
+const rename = require('gulp-rename');
+const path = require('path');
 
 gulp.task('sass', () => {
     return gulp.src("./build/sass/main.scss")
@@ -25,6 +27,19 @@ gulp.task('pug', () => {
             pretty: true
         }))
     .pipe(gulp.dest('./dist/'))
+});
+
+gulp.task('subpages', () => {
+    return gulp.src('./build/pug/pages/*.pug')
+        .pipe(pug({
+            doctype: 'html',
+            pretty: true
+        }))
+        .pipe(rename(function(file) {
+            file.dirname = path.join(file.dirname, file.basename);
+            file.basename = 'index';
+        }))
+        .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('scripts', () => {
@@ -50,9 +65,10 @@ gulp.task('render-docs', () => {
 gulp.task('watch', () => {
     gulp.watch('./build/sass/**/*.scss', gulp.series('sass'))
     gulp.watch('./build/pug/**/*.pug', gulp.series('pug'))
+    gulp.watch('./build/pug/pages/*.pug', gulp.series('subpages'))
     gulp.watch('./build/js/app.js', gulp.series('scripts'))
     gulp.watch('./build/assets/images/*', gulp.series('render-images'))
     gulp.watch('./build/assets/documents/*', gulp.series('render-docs'))
 });
 
-gulp.task('reload', gulp.series('sass', 'pug', 'scripts','render-images', 'render-docs'));
+gulp.task('reload', gulp.series('sass', 'pug', 'subpages', 'scripts','render-images', 'render-docs'));

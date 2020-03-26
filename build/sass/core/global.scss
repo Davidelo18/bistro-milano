@@ -8,6 +8,7 @@
 
 .content {
     padding: 10px;
+    position: relative;
     &__title {
         position: relative;
         text-align: center;
@@ -34,9 +35,48 @@
                 #cd212a);
         }
     }
-    p {
+    &__text {
         @include brand-selection;
-        text-align: justify;
+        text-align: center;
         color: #4c4c4c;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__images {
+        display: flex;
+        justify-content: space-around;
+        @include for-tablet-landscape {
+            flex-direction: column;
+        }
+    }
+    &__image-container {
+        overflow: hidden;
+        height: 300px;
+        @include for-tablet-landscape {
+            height: 180px;
+            margin-top: 10px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            transition: transform .5s ease-in-out;
+        }
+        &:hover {
+            cursor: pointer;
+            img {
+                transform: scale(1.2);
+            }
+        }
+    }
+    p.thin {
+        width: 70%;
+    }
+    strong.welcome {
+        display: block;
+        font-family: $Parisienne;
+        font-size: 2rem;
+        padding: 15px 0 25px;
     }
 }

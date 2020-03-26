@@ -3,6 +3,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 5px;
     grid-auto-rows: 1fr;
+    position: relative;
     @include for-tablet-landscape {
         grid-template-columns: repeat(2, 1fr);
     }

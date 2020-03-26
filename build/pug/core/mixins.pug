@@ -1,8 +1,8 @@
 mixin menu(name, options)
     ul(class=name)
         each option in options
-            li(class=name + '__element')
-                a(class=name + '__link', href=option[1])= option[0]
+            li(class=name + '-element')
+                a(class=name + '-link', href=option[1])= option[0]
 
 mixin section(title)
     section.content
@@ -12,4 +12,5 @@ mixin section(title)
 mixin gallery-image(name, images)
     each image in images
         div(class=name + "__image-container")
-            img(src=image[0], alt=image[1])
+            a(href=image[0], target="_blank")
+                img(src=image[0], alt=image[1])

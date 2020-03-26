@@ -1,22 +1,23 @@
-include core/mixins
-include core/variables
-doctype html
-html
-    head
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(charset="UTF-8")
-        link(rel='apple-touch-icon' sizes='180x180' href=path_to_images + 'apple-touch-icon.png')
-        link(rel='icon' type='image/png' sizes='32x32' href=path_to_images + 'favicon-32x32.png')
-        link(rel='icon' type='image/png' sizes='16x16' href=path_to_images + 'favicon-16x16.png')
-        link(rel='manifest' href=path_to_documents + 'site.webmanifest')
-        link(rel='shortcut icon' href=path_to_images + 'favicon.ico')
-        meta(name='msapplication-TileColor' content='#da532c')
-        meta(name='msapplication-config' content=path_to_documents + 'browserconfig.xml')
-        meta(name='theme-color' content='#ffffff')
-        link(rel="stylesheet", href="css/main.css")
-        link(href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap", rel="stylesheet")
-        link(href="https://fonts.googleapis.com/css?family=Parisienne&display=swap", rel="stylesheet")
-        title Bistro Milano
-        script(src="js/app.js")
-    body
-        include core/template
+include core/template
+head
+    title Bistro Milano
+body
+    include includes/header
+    include includes/banner
+    main.container
+        +section('O nas')
+            .content__text
+                p.thin
+                    | Italia przywołuje na myśl turkusowe morze, piękne góry o każdej porze 
+                    | roku i winnice, z których powstają najdoskonalsze wina na świecie. Bistro Milano 
+                    | to prawdziwa włoska kuchnia z najwyższej jakości wyselekcjonowanych produktów.
+                    | To również idealne miejsce na intymne spotkania we dwoje,
+                    | kameralne negocjacje biznesowe oraz małe uroczystości rodzinne
+                    | w tle włoskiej muzyki
+                strong.welcome Zapraszamy serdecznie
+            .content__images
+                +gallery-image("content", [
+                    [path_to_images + "main_1.jpg", ""],
+                    [path_to_images + "main_2.jpg", ""]
+                ])
+    include includes/footer
