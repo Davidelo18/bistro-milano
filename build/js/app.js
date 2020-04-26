@@ -16,4 +16,35 @@ document.addEventListener('DOMContentLoaded', () => {
             if (title.indexOf(site.textContent) > -1) site.classList.add('current');
         });
     }
+
+    // menu restauracyjne
+    const foodMenuOption = document.querySelectorAll('.restaurant-menu__menu-link');
+    const foodType = document.querySelectorAll('.menu-food__type');
+    const sideBar = document.querySelector(".restaurant-menu__sidebar");
+    let maxHeightOption = foodType[0].parentElement.offsetHeight;
+
+    foodType[0].parentElement.classList.add("menu-food--active");
+    foodType.forEach(type => {
+        type.parentElement.style.display = "block";
+        if(type.parentElement.offsetHeight > maxHeightOption) {
+            maxHeightOption = type.parentElement.offsetHeight;
+        }
+        type.parentElement.style.removeProperty('display');
+    });
+    sideBar.style.height = `${maxHeightOption}px`;
+
+    foodMenuOption.forEach(option => {
+        option.addEventListener('click', (e) => {
+            e.preventDefault();
+            const typeName = option.textContent;
+            foodType.forEach(type => {
+                type.parentElement.classList.remove("menu-food--active");
+            })
+            foodType.forEach(type => {
+                if (typeName == type.textContent) {
+                    type.parentElement.classList.add("menu-food--active");
+                }
+            });
+        });
+    });
 });

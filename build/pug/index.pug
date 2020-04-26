@@ -1,23 +1,82 @@
 include core/template
 head
-    title Bistro Milano
+    title Bistro Milano - Menu
 body
     include includes/header
     include includes/banner
     main.container
-        +section('O nas')
-            .content__text
-                p.thin
-                    | Italia przywołuje na myśl turkusowe morze, piękne góry o każdej porze 
-                    | roku i winnice, z których powstają najdoskonalsze wina na świecie. Bistro Milano 
-                    | to prawdziwa włoska kuchnia z najwyższej jakości wyselekcjonowanych produktów.
-                    | To również idealne miejsce na intymne spotkania we dwoje,
-                    | kameralne negocjacje biznesowe oraz małe uroczystości rodzinne
-                    | w tle włoskiej muzyki
-                strong.welcome Zapraszamy serdecznie
-            .content__images
-                +gallery-image("content", [
-                    [path_to_images + "main_1.jpg", ""],
-                    [path_to_images + "main_2.jpg", ""]
-                ])
+        +section("Menu")
+            .restaurant-menu
+                .restaurant-menu__sidebar
+                    h2.restaurant-menu__title Wybierz z menu:
+                    +menu("restaurant-menu__menu", [
+                        ["Przystawki", "#"],
+                        ["Makarony", "#"],
+                        ["Makaron z pieca", "#"],
+                        ["Risotto", "#"],
+                        ["Dania drugie", "#"],
+                        ["Dodatki", "#"],
+                        ["Sałatki", "#"],
+                        ["Pizza", "#"]])
+                .restaurant-menu__main
+                    +menu-food("Przystawki", [
+                        ["Focaccia con rosmarino", "(podpłomyk, rozmaryn, gruba sól morska)"],
+                        ["Focaccia con pomodorini", "(podpłomyk, pomidorki, oregano)"],
+                        ["Bruschetta al pomodoro", "(grillowane pieczywo, pomidor, oregano)"],
+                        ["Bruschetta con mozzarella", "(grillowane pieczywo, pomidor, mozzarella)"],
+                        ["Tagliere di affettati", "(deska wędlin dojrzewających i gotowanych)"],
+                        ["Tagliere di formaggi misti", "(deska świeżych i dojrzewających serów)"],
+                        ["Bresaola con rucola e grana", "(bresaola, sałata rukola, parmezan)"],
+                        ["Burrata o stracciatella", "(biały, wytrawny ser o słodko maślanym smaku i płynącej konsystencji)"],
+                        ["Rotolo di mozzarella farcita", "(mozzarella, szynka, pomidory, sałata)"]])
+                    +menu-food("Makarony", [
+                        ["Pasta al pesto", "(makaron ze świeżym pesto bazyliowym)"],
+                        ["Tagliatelle alla Bolognese", "(makaron, sos pomidorowy, mięso wołowo-wieprzowe, parmezan)"],
+                        ["Spaghetti alla carbonara", "(makaron, jaja, policzki wieprzowe wędzone, pecorino)"],
+                        ["Paccheri in crema di zafferano", "(makaron, szafran, parmezan, kiełbaska)"],
+                        ["Spaghetti Bistro Milano", "(makaron, sardele, ostra papryka, pomidory, orzechy)"],
+                        ["Ravioli del giorno", "(świeży makaron nadziewany)"],
+                        ["Gnocchi di patate", "(kluseczki ziemniaczane, krem gorgonzola lub sos boloński)"]])
+                    +menu-food("Makaron z pieca", [
+                        ["Lasagne al pesto", "(pesto ze świeżej bazylii, sos beszamelowy, parmezan)"],
+                        ["Lasagne alla bolognese", "(sos pomidorowy z mięsem wołowo-wieprzowym, sos beszamelowy, parmezan)"]
+                    ])
+                    +menu-food("Risotto", [
+                        ["Risotto alla milanese", "(ryż arborio lub carnaroli, szafran)"],
+                        ["Risotto con verdure di stagione", "(ryż arborio lub carnaroli, świeże warzywa odpowiednie do pory roku)"]
+                    ])
+                    +menu-food("Dania drugie", [
+                        ["Tagliata di manzo", "(grillowana polędwica wołowa, rukola, pomidorki, parmezan)"],
+                        ["Filetto di carne bianca in crema al limone", "(filet drobiowy, delikatny krem cytrynowy)"],
+                        ["Vitello tonnato", "(pieczeń wołowa, sos z tuńczyka, kapary)"],
+                        ["Orata o branzino al cartoccio", "(dorada lub okoń morski, pomidorki, szałwia, rozmaryn, mięta, pieczone w białym winie)"]
+                    ])
+                    +menu-food("Dodatki", [
+                        ["Peperoni grigliati", "(grillowana papryka, nać pietruszki, czosnek, oliwa)"],
+                        ["Zucchine grigliate", "(grillowana cukinia, oregano, czosnek, oliwa)"],
+                        ["Melanzane grigliate", "(grillowany bakłażan, nać pietruszki, czosnek, oliwa)"],
+                        ["Insalata mista", "(mieszanka sałat)"],
+                        ["Patate al forno", "(pieczone ziemniaczki, rozmaryn)"],
+                        ["Patate lesse", "(ziemniaczki z wody)"],
+                        ["Legumi cotti", "(gotowane warzywa strączkowe)"],
+                        ["Capanata", "(duszone warzywa, papryka, cukinia, cebula, oliwki, pomidory)"]
+                    ])
+                    +menu-food("Sałatki", [
+                        ["Insalata di ceci e speck", "(ciecierzyca, speck, cebula, sałata, ocet balsamiczny)"],
+                        ["Carpaccio di funghi champignon", "(pieczarki, rukola, parmezan, orzeszki)"],
+                        ["Insalata caprese", "(mozzarella, pomidory, bazylia)"]
+                    ])
+                    +menu-food("Pizza", [
+                        ["Margherita", "(sos pomidorowy, mozzarella, bazylia)"],
+                        ["Quattro Stagioni", "(sos pomidorowy, gotowana szynka, pieczarki, oliwki, karczochy)"],
+                        ["Prosciutto Crudo", "(sos pomidorowy, mozzarella, szynka parmeńska)"],
+                        ["Boscaiola", "(sos pomidorowy, mozzarella, speck, grzyby)"],
+                        ["Diavola", "(sos pomidorowy, mozzarella, salami pikantne)"],
+                        ["Quattro Formaggi", "(mozzarella, gorgonzola, parmezan, fontina)"],
+                        ["Bistro Milano", "(sos pomidorowy, mozzarella, burrata, bazylia)"],
+                        ["Vulcano", "(sos pomidorowy, mozzarella, szynka gotowana)"],
+                        ["Bresaola & Rucola", "(sos pomidorowy, mozzarella, bresaola, rukola, parmezan)"],
+                        ["Ortolana", "(sos pomidorowy, mozzarella, grillowane warzywa, papryka, bakłażan, cukinia)"],
+                        ["Fai de te", "Pizza na specjalne życzenie"],
+                    ])
     include includes/footer

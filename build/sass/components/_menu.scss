@@ -1,0 +1,73 @@
+.restaurant-menu {
+    display: flex;
+    @include for-tablet-portrait {
+        flex-direction: column;
+    }
+    &__sidebar {
+        width: 30%;
+        background-color: $brandColor;
+        @include for-tablet-portrait {
+            width: 100%;
+        }
+    }
+    &__main {
+        width: 70%;
+        border-top: 2px solid $darkBg;
+        @include for-tablet-portrait {
+            width: 100%;
+        }
+    }
+    &__menu {
+        &-element {
+            text-align: center;
+            &--active {
+                font-weight: bold;
+            }
+        }
+        &-link {
+            display: block;
+            padding: 10px;
+        }
+    }
+    &__title {
+        background-color: $darkBg;
+        text-align: center;
+        padding: 10px;
+        color: #2c2c2c;
+    }
+    .menu-food {
+        display: none;
+        &--active {
+            display: block;
+            .menu-food__list {
+                animation: flash 1s;
+            }
+        }
+        &__type {
+            text-align: center;
+            background-color: $brandColor;
+            color: #2c2c2c;
+            padding: 9px 0;
+        }
+        &__list {
+            padding: 10px;
+            &-element {
+                margin-bottom: 30px;
+            }
+        }
+        &__name {
+            font-weight: bold;
+        }
+        &__ingredients {
+            font-size: .85rem;
+        }
+    }
+    @keyframes flash {
+        0% { 
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}

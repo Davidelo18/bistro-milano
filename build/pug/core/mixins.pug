@@ -14,3 +14,12 @@ mixin gallery-image(name, images)
         div(class=name + "__image-container")
             a(href=image[0], target="_blank")
                 img(src=image[0], alt=image[1])
+
+mixin menu-food(type, foods)
+    .menu-food
+        h2.menu-food__type= type
+        ul(class="menu-food__list")
+            each food in foods
+                li(class="menu-food__list-element")
+                    p.menu-food__name= food[0]
+                    p.menu-food__ingredients= food[1]
