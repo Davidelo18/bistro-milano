@@ -8,6 +8,7 @@
         background-color: $brandColor;
         @include for-tablet-portrait {
             width: 100%;
+            height: auto !important;
         }
     }
     &__main {
@@ -27,6 +28,10 @@
         &-link {
             display: block;
             padding: 10px;
+            transition: background-color .3s;
+            &--active {
+                background-color: $darkOption;
+            }
         }
     }
     &__title {
@@ -48,6 +53,10 @@
             background-color: $brandColor;
             color: #2c2c2c;
             padding: 9px 0;
+            @include for-tablet-portrait {
+                margin-top: 30px;
+                background-color: $darkBg;
+            }
         }
         &__list {
             padding: 10px;

@@ -2,6 +2,10 @@
     font-family: $OpenSans;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .container {
     @include make-container;
 }

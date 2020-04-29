@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sideBar = document.querySelector(".restaurant-menu__sidebar");
     let maxHeightOption = foodType[0].parentElement.offsetHeight;
 
+    foodMenuOption[0].classList.add("restaurant-menu__menu-link--active");
+
     foodType[0].parentElement.classList.add("menu-food--active");
     foodType.forEach(type => {
         type.parentElement.style.display = "block";
@@ -33,10 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     sideBar.style.height = `${maxHeightOption}px`;
 
-    foodMenuOption.forEach(option => {
+    foodMenuOption.forEach((option, i, theArray) => {
         option.addEventListener('click', (e) => {
-            e.preventDefault();
+            if (window.screen.width > 768) {
+                e.preventDefault();
+            }
             const typeName = option.textContent;
+            theArray.forEach(option => option.classList.remove('restaurant-menu__menu-link--active'));
+            option.classList.add('restaurant-menu__menu-link--active');
+
             foodType.forEach(type => {
                 type.parentElement.classList.remove("menu-food--active");
             })

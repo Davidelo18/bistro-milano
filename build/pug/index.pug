@@ -10,15 +10,15 @@ body
                 .restaurant-menu__sidebar
                     h2.restaurant-menu__title Wybierz z menu:
                     +menu("restaurant-menu__menu", [
-                        ["Przystawki", "#"],
-                        ["Makarony", "#"],
-                        ["Makaron z pieca", "#"],
-                        ["Risotto", "#"],
-                        ["Dania drugie", "#"],
-                        ["Dodatki", "#"],
-                        ["Sałatki", "#"],
-                        ["Pizza", "#"]])
-                .restaurant-menu__main
+                        ["Przystawki", "#menuMain"],
+                        ["Makarony", "#menuMain"],
+                        ["Makaron z pieca", "#menuMain"],
+                        ["Risotto", "#menuMain"],
+                        ["Dania drugie", "#menuMain"],
+                        ["Dodatki", "#menuMain"],
+                        ["Sałatki", "#menuMain"],
+                        ["Pizza", "#menuMain"]])
+                .restaurant-menu__main#menuMain
                     +menu-food("Przystawki", [
                         ["Focaccia con rosmarino", "(podpłomyk, rozmaryn, gruba sól morska)"],
                         ["Focaccia con pomodorini", "(podpłomyk, pomidorki, oregano)"],
